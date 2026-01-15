@@ -1,2 +1,88 @@
 @import url('reset.css');
 
+/* =====================================================
+   BASE
+===================================================== */
+
+body {
+    min-height: 100vh; /* Define a altura mínima do corpo para ocupar toda a altura da janela de visualização. */
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.app-header {
+    display: flex; /* Define o contêiner como um flexbox. */
+    align-items: center; /* Centraliza os itens verticalmente dentro do contêiner. */
+    justify-content: center; /* Centraliza os itens horizontalmente dentro do contêiner. */
+
+    padding: 32px 20px;
+    min-height: 506px;
+
+    background-image: url('../images/header-background.png');
+    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita. */
+    background-size: cover; /* Faz com que a imagem de fundo cubra todo o contêiner, mantendo sua proporção. */
+    background-position: center; /* Centraliza a imagem de fundo dentro do contêiner. */
+
+    text-align: left; /* Alinha o texto à esquerda dentro do contêiner. */
+}
+
+.app-header__content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%; /* ocupa toda a largura disponível */ 
+}
+
+
+.app-header__title {
+    font-family: 'Luckiest Guy', cursive;
+    max-width: 60%;          /* Limita a largura máxima do título a 60% do contêiner pai */
+    font-size: 2rem; /* 2 rem representa 32px, pois o tamanho da fonte é baseado em 16px */
+    font-weight: 400;        
+    line-height: 1;          /* Altura de linha compacta */
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.app-header__subtitle {
+    font-size: 1rem;
+    line-height: 1.4; /* Define a altura da linha como 1.4 vezes o tamanho da fonte. */
+    color: #ffffff;
+}
+
+/* área dos botões */
+.app-header__actions {
+  display: flex; /* Define o contêiner como um flexbox. */
+  flex-direction: column; /* Alinha os botões em uma coluna vertical. */
+  gap: 16px; /* Adiciona um espaço de 16px entre os botões. */
+  width: 100%; /* Ocupa toda a largura disponível do contêiner pai. */
+}
+
+/* botão claro e escuro */
+.app-header__button {
+  padding: 14px 28px;
+  height: 54px;
+  width: 100%; 
+  border: 0;
+  border-radius: 500px; /* Bordas arredondadas, criando um formato de pílula. */
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* botão branco */
+.app-header__button--download {
+  background: #ffffff;
+  color: #23272a;
+}
+
+/* botão escuro */
+.app-header__button--open {
+  background: #23272a;
+  color: #ffffff;
+}
+

@@ -7,7 +7,7 @@ Este Desafio consiste em desenvolver a página da plataforma do Discord colocand
 - Media Features;
 - Operators;
 - Breakpoints;
-- Tipografia responsiva
+- Tipografia responsiva.
 
 ## 🎯 Objetivo do Projeto
 
