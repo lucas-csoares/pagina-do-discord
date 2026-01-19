@@ -1,14 +1,15 @@
 @import url('reset.css');
 
 /* =====================================================
-   BASE
+   GERAL
 ===================================================== */
 
-body {
-    min-height: 100vh; /* Define a altura mínima do corpo para ocupar toda a altura da janela de visualização. */
-    display: flex;
-    flex-direction: column;
-    font-family: 'Open Sans', sans-serif;
+.app-header__title, .content-section--connection .content-section__title {
+    text-transform: uppercase;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: 0.05rem;
 }
 
 /* =====================================================
@@ -16,51 +17,47 @@ body {
 ===================================================== */
 
 .app-header {
-    display: flex; /* Define o contêiner como um flexbox. */
-    align-items: center; /* Centraliza os itens verticalmente dentro do contêiner. */
-    justify-content: center; /* Centraliza os itens horizontalmente dentro do contêiner. */
-
-    padding: 32px 20px;
-    min-height: 506px;
-
+    padding: 60px 20px;
+    min-height: 505px; /* Define uma altura mínima de 506 pixels para o cabeçalho. */
     background-image: url('../images/header-background.png');
     background-repeat: no-repeat; /* Impede que a imagem de fundo se repita. */
     background-size: cover; /* Faz com que a imagem de fundo cubra todo o contêiner, mantendo sua proporção. */
     background-position: center; /* Centraliza a imagem de fundo dentro do contêiner. */
-
-    text-align: left; /* Alinha o texto à esquerda dentro do contêiner. */
 }
 
 .app-header__content {
     display: flex;
     flex-direction: column;
     gap: 28px;
-    width: 100%; /* ocupa toda a largura disponível */ 
+    align-items: center;
+    width: 100%;
+    max-width: 360px; /* largura típica mobile (Figma style) */
+    margin: 0 auto;   /* centraliza horizontalmente */
 }
 
 
 .app-header__title {
-    font-family: 'Luckiest Guy', cursive;
-    max-width: 60%;          /* Limita a largura máxima do título a 60% do contêiner pai */
-    font-size: 2rem; /* 2 rem representa 32px, pois o tamanho da fonte é baseado em 16px */
+    align-self: flex-start; /* Alinha o título ao início do contêiner pai */
+    max-width: 50%;          /* Limita a largura máxima do título a uma porcentagem do contêiner pai */
     font-weight: 400;        
-    line-height: 1;          /* Altura de linha compacta */
     color: #ffffff;
-    text-transform: uppercase;
 }
 
 .app-header__subtitle {
     font-size: 1rem;
     line-height: 1.4; /* Define a altura da linha como 1.4 vezes o tamanho da fonte. */
+    max-width: 100%;
     color: #ffffff;
 }
 
 /* área dos botões */
 .app-header__actions {
-  display: flex; /* Define o contêiner como um flexbox. */
-  flex-direction: column; /* Alinha os botões em uma coluna vertical. */
+  display: flex;
+  flex-direction: column; /* Organiza os botões em uma coluna. */
+  align-items: center; /* Centraliza os botões horizontalmente dentro do contêiner. */
   gap: 16px; /* Adiciona um espaço de 16px entre os botões. */
   width: 100%; /* Ocupa toda a largura disponível do contêiner pai. */
+  max-width: 381px;
 }
 
 /* botão claro e escuro */
@@ -86,3 +83,61 @@ body {
   color: #ffffff;
 }
 
+/* =====================================================
+   MAIN
+===================================================== */
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 32px;
+  padding: 40px 24px;
+}
+
+/*
+Por que não usei min-height: 100vh?
+As sessões não ocupam 100% da altura da tela (viewport), então usar min-height: 100vh faria com que houvesse um espaço em branco desnecessário.
+*/
+
+
+.content-section--discover, .content-section--connection {
+  background-color: #f6f6f6;
+}
+
+.content-section__image-img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.content-section__title {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 800;
+    word-spacing: -1px;
+    line-height: 1.5;
+    color: #23272a;
+}
+
+.content-section__description {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5;
+    color: #23272a;
+}
+
+.content-section--connection {
+  flex-direction: column-reverse;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 140px;
+    background-color: #23272A;
+}

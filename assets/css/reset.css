@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 * {
-    font-family: 'Roboto', sans-serif; /*aplica a fonte roboto para todos os elementos*/
+    font-family: 'Open Sans', sans-serif; /*aplica a fonte Opens Sans para todos os elementos*/
     margin: 0;
     padding: 0;
     box-sizing: border-box; /*redimensiona o conteúdo do elemento de forma que somando o padding e o border do elemento ele tenha uma largura total definida previamente.*/
