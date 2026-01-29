@@ -104,6 +104,12 @@ Por que não usei min-height: 100vh?
 As sessões não ocupam 100% da altura da tela (viewport), então usar min-height: 100vh faria com que houvesse um espaço em branco desnecessário.
 */
 
+.content-section .content-section__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 
 .content-section--discover, .content-section--connection {
   border: 2px solid #e1e4e8;
@@ -156,15 +162,6 @@ As sessões não ocupam 100% da altura da tela (viewport), então usar min-heigh
 /* ======= DESKTOP =======*/
 @media screen and (min-width: 1024px) {
 
-
-  /* =====================================================
-   BASE 
-  ===================================================== */
-
-  .app-header__title, .content-section--connection .content-section__title {
-    font-size: 3.5rem;
-  }
-
   
   /* =====================================================
    HEADER 
@@ -179,6 +176,7 @@ As sessões não ocupam 100% da altura da tela (viewport), então usar min-heigh
   
   /* título */
     .app-header__title {
+      font-size: 3.5rem;
       align-self: center; /* Alinha o título ao centro do contêiner pai */
   }
 
@@ -202,67 +200,59 @@ As sessões não ocupam 100% da altura da tela (viewport), então usar min-heigh
   ===================================================== */
  
 
-  .content {
-    
-    margin: 0 auto;
-  }
-
-  .content-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Define duas colunas com proporções específicas. */;
-    grid-template-rows: auto auto; /* Define 2 grid rows (tracks) automáticas. */;
-    column-gap: auto; /* Espaçamento entre colunas. */;
-    row-gap: 0px; /* Espaçamento entre linhas. */;
-    align-items: center; /* Alinha os itens ao centro verticalmente. */;
-    width: 100%;
+    .content-section--desktop-layout {
+    flex-direction: row; /* Lado a lado */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    gap: 10px; /* Espaço entre imagem e texto */
+    margin: 0 auto; /* Centraliza a seção horizontalmente */
+    padding: 80px max(18vw, 40px); /* A função max() retorna o maior valor entre os dois fornecidos. Aqui, ela garante que o padding seja pelo menos 40px, mas pode ser maior se 18vw (18% da largura da viewport) for maior. */
   }
 
 
-  .content-section__image {
-    grid-column: 1;
-    grid-row: 1 / 3; /* Começa na grid line 1 e termina na grid line 3 */
+  .content-section--discover {
+    flex-direction: row-reverse !important; 
   }
 
-  .content-section__image img{
-    width: auto;
-    max-width: none;
+  .content-section--desktop-layout .content-section__image {
+    flex: 1; /* flex-grow: 1 (O item pode crescer e ocupar o espaço disponível), flex-shrink: 1 (O item pode encolher se necessário), flex-basis: 0 (O item começa com base zero) */
+    max-width: 50%;
   }
 
-  .content-section__title {
-    grid-column: 2;
-    grid-row: 1; /*A mesma coisa que 1 / auto. Indica começo na grid line 1 e término automático na próxima linha (grid line 2) disponível*/
-    margin: 0; /* evita espaçamento inesperado */
+  .content-section--desktop-layout .content-section__image img {
+    max-width: 100%;
+    height: auto;
   }
 
-
-  .content-section__description {
-    grid-column: 2;
-    grid-row: 2;
-    margin: 0; /* evita espaçamento inesperado */
+  .content-section--desktop-layout .content-section__text {
+    flex: 1; /* Ocupa o espaço restante */
+    max-width: 50%;
   }
 
-
-  .content-section__title {
-    font-size: 3.3rem;
-    line-height: 1.1;
-  }
-
-  .content-section__description {
-    max-width: 46ch; /* melhora leitura do parágrafo */
+ 
+  .content-section--desktop-layout .content-section__title {
+    font-size: 2rem;
+    max-width: 60%;
   }
 
 
-   /* Sections que no protótipo ficam com imagem à direita */
-  .content-section--discover .content-section__image,  .content-section--connection .content-section__image{
-    grid-column: 2;
+  .content-section--connection {
+    align-items: center;
+    text-align: center;
   }
 
-  .content-section--discover .content-section__title,
-  .content-section--discover .content-section__description,
-  .content-section--connection .content-section__title,
+  .content-section--connection .content-section__image img{
+    max-width: 800px;
+  }
+
+  .content-section--connection .content-section__title {
+    max-width: 20ch; /* limita a largura do título a 20 caracteres */
+  }
+
   .content-section--connection .content-section__description {
-    grid-column: 1;
+    max-width: 80ch; /* limita a largura da descrição a 80 caracteres */
   }
+
 
 
 }
