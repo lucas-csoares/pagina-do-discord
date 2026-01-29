@@ -1,29 +1,33 @@
 @import url('reset.css');
 
 /* =====================================================
-   GERAL
+   BASE / MOBILE FIRST 
 ===================================================== */
 
 .app-header__title, .content-section--connection .content-section__title {
     text-transform: uppercase;
     font-family: 'Luckiest Guy', cursive;
     font-size: 2rem;
-    line-height: 1;
-    letter-spacing: 0.05rem;
+    line-height: 1; /* Define a altura da linha como igual ao tamanho da fonte, eliminando espaço extra entre linhas. */
+    letter-spacing: 0.05rem; /* Adiciona um espaçamento de 0.05rem entre as letras para melhorar a legibilidade. */
 }
 
 /* =====================================================
-   HEADER
+HEADER (mobile)
 ===================================================== */
-
 .app-header {
-    padding: 60px 20px;
-    min-height: 505px; /* Define uma altura mínima de 506 pixels para o cabeçalho. */
-    background-image: url('../images/header-background.png');
-    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita. */
-    background-size: cover; /* Faz com que a imagem de fundo cubra todo o contêiner, mantendo sua proporção. */
-    background-position: center; /* Centraliza a imagem de fundo dentro do contêiner. */
+    min-height: 505px;
+    background: url('../images/header-background.png') center / cover no-repeat; /*shorthand para 4 propriedades*/
+    display: flex;
+    justify-content: center; /* eixo vertical */
+    align-items: center;     /* eixo horizontal */
+
+    /* background-image: url('../images/header-background.png'); Define a imagem de fundo do cabeçalho.
+    background-repeat: no-repeat; Impede que a imagem de fundo se repita.
+    background-size: cover; Ajusta o tamanho da imagem de fundo para cobrir todo o contêiner, mantendo a proporção.
+    background-position: center; Centraliza a imagem de fundo dentro do contêiner. */
 }
+
 
 .app-header__content {
     display: flex;
@@ -31,8 +35,8 @@
     gap: 28px;
     align-items: center;
     width: 100%;
-    max-width: 360px; /* largura típica mobile (Figma style) */
-    margin: 0 auto;   /* centraliza horizontalmente */
+    margin: 0 auto;
+    padding: 0 20px; /* mantém respiro lateral sem deslocar pra baixo */
 }
 
 
@@ -84,7 +88,7 @@
 }
 
 /* =====================================================
-   MAIN
+   MAIN (mobile)
 ===================================================== */
 
 .content-section {
@@ -102,10 +106,11 @@ As sessões não ocupam 100% da altura da tela (viewport), então usar min-heigh
 
 
 .content-section--discover, .content-section--connection {
+  border: 2px solid #e1e4e8;
   background-color: #f6f6f6;
 }
 
-.content-section__image-img {
+.content-section__image img{
     width: 100%;
     max-width: 400px;
 }
@@ -130,7 +135,7 @@ As sessões não ocupam 100% da altura da tela (viewport), então usar min-heigh
 
 
 /* =====================================================
-   FOOTER
+   FOOTER (mobile)
 ===================================================== */
 
 .footer {
@@ -141,3 +146,124 @@ As sessões não ocupam 100% da altura da tela (viewport), então usar min-heigh
     min-height: 140px;
     background-color: #23272A;
 }
+
+
+/* =====================================================
+   MEDIA QUERIES (desktop, notebook, tablets
+===================================================== */
+
+
+/* ======= DESKTOP =======*/
+@media screen and (min-width: 1024px) {
+
+
+  /* =====================================================
+   BASE 
+  ===================================================== */
+
+  .app-header__title, .content-section--connection .content-section__title {
+    font-size: 3.5rem;
+  }
+
+  
+  /* =====================================================
+   HEADER 
+  ===================================================== */
+
+  /* contêiner do header */
+  .app-header__content {
+    margin: 0 0;
+    max-width: 53%; /* controla largura do texto */
+    text-align: center;
+  }
+  
+  /* título */
+    .app-header__title {
+      align-self: center; /* Alinha o título ao centro do contêiner pai */
+  }
+
+  /* área dos botões */
+  .app-header__actions {
+    flex-direction: row; /* Organiza os botões em uma coluna. */
+    justify-content: center; /* Centraliza os botões horizontalmente (por conta que é row) dentro do contêiner. */
+    max-width: none; /* Remove a largura máxima definida fora da Media Query. */
+  }
+
+  /* botão claro e escuro */
+  .app-header__button {
+    height: auto;
+    width: auto; /* Ajusta a largura do botão automaticamente com base no conteúdo. */
+  }
+
+  
+
+  /* =====================================================
+   MAIN
+  ===================================================== */
+ 
+
+  .content {
+    
+    margin: 0 auto;
+  }
+
+  .content-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Define duas colunas com proporções específicas. */;
+    grid-template-rows: auto auto; /* Define 2 grid rows (tracks) automáticas. */;
+    column-gap: auto; /* Espaçamento entre colunas. */;
+    row-gap: 0px; /* Espaçamento entre linhas. */;
+    align-items: center; /* Alinha os itens ao centro verticalmente. */;
+    width: 100%;
+  }
+
+
+  .content-section__image {
+    grid-column: 1;
+    grid-row: 1 / 3; /* Começa na grid line 1 e termina na grid line 3 */
+  }
+
+  .content-section__image img{
+    width: auto;
+    max-width: none;
+  }
+
+  .content-section__title {
+    grid-column: 2;
+    grid-row: 1; /*A mesma coisa que 1 / auto. Indica começo na grid line 1 e término automático na próxima linha (grid line 2) disponível*/
+    margin: 0; /* evita espaçamento inesperado */
+  }
+
+
+  .content-section__description {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0; /* evita espaçamento inesperado */
+  }
+
+
+  .content-section__title {
+    font-size: 3.3rem;
+    line-height: 1.1;
+  }
+
+  .content-section__description {
+    max-width: 46ch; /* melhora leitura do parágrafo */
+  }
+
+
+   /* Sections que no protótipo ficam com imagem à direita */
+  .content-section--discover .content-section__image,  .content-section--connection .content-section__image{
+    grid-column: 2;
+  }
+
+  .content-section--discover .content-section__title,
+  .content-section--discover .content-section__description,
+  .content-section--connection .content-section__title,
+  .content-section--connection .content-section__description {
+    grid-column: 1;
+  }
+
+
+}
+
