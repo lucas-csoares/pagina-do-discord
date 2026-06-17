@@ -9,7 +9,7 @@ Este Desafio consiste em desenvolver a página da plataforma do Discord colocand
 - Breakpoints;
 - Tipografia responsiva.
 
-## 🎯 Objetivo do Projeto
+## Objetivo do Projeto
 
 A proposta é replicar o protótipo criado pela profa. [Michele Queiroz Ambrosio](https://github.com/micheleambrosio) para o curso de CSS, oferecido pela [Digital Innovation One (DIO)](https://www.dio.me/)
 
@@ -17,14 +17,14 @@ A proposta é replicar o protótipo criado pela profa. [Michele Queiroz Ambrosio
 
 [Click aqui para acessar](https://www.figma.com/design/NRBYrG5d4DSzObv7dpTqoM/Desafio-Responsividade---DIO?node-id=1-56&t=AFI84vbOzwtzsnXk-0) 
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 - `index.html`: arquivo principal da aplicação, responsável pela estrutura HTML da página;
 - `/assets/images`: armazena as imagens utilizadas no projeto (ícones, banners, etc.);
 - `/assets/css/style.css`: define o design e layout da página;
 - `/assets/css/reset.css`: remove estilos padrões de navegadores para garantir consistência.
 
-## 🔗 Referências
+## Referências
 
 - [Formação CSS Web Developer](https://web.dio.me/track/formacao-css-web-developer)
 
